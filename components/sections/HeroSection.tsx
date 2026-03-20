@@ -55,12 +55,12 @@ export default function HeroSection() {
           <div className="order-2 relative">
             <div className="relative w-full aspect-[4/5] md:aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=800&q=80"
-                alt="Mulher empreendedora confiante e saudável, sorrindo"
+                src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&q=80"
+                alt="Mulher feliz e saudável aproveitando a vida com disposição"
                 fill
                 priority
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover object-top"
+                className="object-cover object-center"
               />
               {/* Overlay sutil para integração com o fundo */}
               <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />
