@@ -68,12 +68,12 @@ export default function HeroSection() {
 
             <div className="relative w-full aspect-[4/5] md:aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl">
               <Image
-                src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=85"
-                alt="Mulher com corpo saudável e tonificado, feliz e confiante"
+                src="https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=800&fit=crop&h=1000"
+                alt="Mulher com corpo tonificado e trabalhado, saudável e confiante"
                 fill
                 priority
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover object-center"
+                className="object-cover object-top"
               />
               {/* Overlay gradiente suave na base */}
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/15 via-transparent to-transparent" />
