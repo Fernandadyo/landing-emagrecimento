@@ -5,17 +5,51 @@ import { SOCIAL_PROOF_COUNT } from '@/lib/constants'
 export default function HeroSection() {
   return (
     <section
-      className="relative bg-background overflow-hidden"
+      className="relative overflow-hidden bg-gradient-to-br from-[#FFF5F2] via-background to-[#F5F8F2]"
       aria-label="Seção principal"
     >
       {/* Blobs decorativos de fundo */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/8 rounded-full blur-3xl translate-x-1/2 -translate-y-1/4 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-secondary/8 rounded-full blur-3xl -translate-x-1/3 translate-y-1/4 pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
 
-          {/* Coluna de texto */}
+          {/* Coluna da imagem — mobile: em cima, desktop: direita */}
+          <div className="order-1 md:order-2 relative">
+            {/* Círculo decorativo atrás da imagem */}
+            <div className="absolute top-6 right-6 bottom-6 left-6 bg-gradient-to-br from-primary/20 via-accent to-secondary/20 rounded-full blur-2xl pointer-events-none" />
+
+            <div className="relative w-full h-[380px] md:h-auto md:aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
+              <Image
+                src="https://images.pexels.com/photos/3757954/pexels-photo-3757954.jpeg?auto=compress&cs=tinysrgb&w=800&h=1000&fit=crop"
+                alt="Mulher saudável, confiante e em forma, sorrindo"
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover object-center"
+              />
+              {/* Overlay gradiente suave na base */}
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground/15 via-transparent to-transparent" />
+            </div>
+
+            {/* Badge flutuante 1 — resultado (bottom-left) */}
+            <div className="animate-float absolute -bottom-5 -left-4 glass-card rounded-2xl shadow-xl px-5 py-3.5 flex items-center gap-3">
+              <span className="text-2xl">⚡</span>
+              <div>
+                <p className="text-[11px] text-foreground/50 leading-none mb-0.5">Primeiros resultados</p>
+                <p className="text-sm font-bold text-foreground">em 2 semanas</p>
+              </div>
+            </div>
+
+            {/* Badge flutuante 2 — avaliação (top-right) */}
+            <div className="animate-float [animation-delay:1.5s] absolute -top-3 -right-3 glass-card rounded-2xl shadow-xl px-4 py-3 flex items-center gap-2.5">
+              <div className="flex gap-0.5 text-amber-400 text-sm">★★★★★</div>
+              <p className="text-xs font-semibold text-foreground">4.9/5</p>
+            </div>
+          </div>
+
+          {/* Coluna de texto — mobile: embaixo, desktop: esquerda */}
           <div className="flex flex-col gap-6 order-2 md:order-1">
 
             {/* Pílula de prova social */}
@@ -25,7 +59,7 @@ export default function HeroSection() {
             </div>
 
             {/* Headline */}
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-[3.25rem] font-bold text-foreground leading-[1.12]">
+            <h1 className="font-serif text-[2.25rem] md:text-5xl lg:text-[3.5rem] font-bold text-foreground leading-[1.1]">
               Emagreça sem abrir{' '}
               <span className="relative inline-block">
                 <span className="text-primary">mão da sua</span>
@@ -42,12 +76,18 @@ export default function HeroSection() {
               saúde — sem dietas complexas, sem treinos longos, sem culpa.
             </p>
 
+            {/* Contador de mulheres */}
+            <div className="flex items-center gap-3 py-2">
+              <span className="text-4xl font-extrabold text-primary">10.000+</span>
+              <span className="text-foreground/60 text-sm leading-tight max-w-[140px]">mulheres já transformaram sua vida</span>
+            </div>
+
             {/* CTA */}
             <div className="flex flex-col sm:flex-row gap-4 items-start">
               <CtaButton location="hero" className="animate-pulse-glow" />
             </div>
 
-            {/* Micro-credenciais */}
+            {/* Micro-copy de segurança */}
             <div className="flex flex-wrap gap-5 text-sm text-foreground/50">
               <span className="flex items-center gap-1.5">
                 <span className="text-base">🔒</span> Pagamento seguro
@@ -59,41 +99,6 @@ export default function HeroSection() {
                 <span className="text-base">🛡️</span> Garantia de 7 dias
               </span>
             </div>
-          </div>
-
-          {/* Coluna da imagem */}
-          <div className="order-1 md:order-2 relative">
-            {/* Círculo decorativo atrás da imagem */}
-            <div className="absolute inset-4 bg-gradient-to-br from-accent via-primary/10 to-secondary/10 rounded-3xl" />
-
-            <div className="relative w-full aspect-[4/5] md:aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl">
-              <Image
-                src="https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=800&fit=crop&h=1000"
-                alt="Mulher com corpo tonificado e trabalhado, saudável e confiante"
-                fill
-                priority
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover object-top"
-              />
-              {/* Overlay gradiente suave na base */}
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/15 via-transparent to-transparent" />
-            </div>
-
-            {/* Badge flutuante 1 — resultado */}
-            <div className="animate-float absolute -bottom-5 -left-4 glass-card rounded-2xl shadow-xl px-5 py-3.5 flex items-center gap-3">
-              <span className="text-2xl">✨</span>
-              <div>
-                <p className="text-[11px] text-foreground/50 leading-none mb-0.5">Resultado médio</p>
-                <p className="text-sm font-bold text-foreground">5–8 kg em 60 dias</p>
-              </div>
-            </div>
-
-            {/* Badge flutuante 2 — avaliação */}
-            <div className="animate-float [animation-delay:1.5s] absolute -top-3 -right-3 glass-card rounded-2xl shadow-xl px-4 py-3 flex items-center gap-2.5">
-              <div className="flex gap-0.5 text-amber-400 text-sm">★★★★★</div>
-              <p className="text-xs font-semibold text-foreground">4.9/5</p>
-            </div>
-
           </div>
 
         </div>

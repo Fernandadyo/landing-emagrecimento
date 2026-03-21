@@ -1,3 +1,4 @@
+import AnnouncementBar from '@/components/ui/AnnouncementBar'
 import HeroSection from '@/components/sections/HeroSection'
 import PainSolutionSection from '@/components/sections/PainSolutionSection'
 import WhatYouLearnSection from '@/components/sections/WhatYouLearnSection'
@@ -9,6 +10,7 @@ import StickyCtaBar from '@/components/ui/StickyCtaBar'
 export default function Home() {
   return (
     <main>
+      <AnnouncementBar />
       <HeroSection />
       <PainSolutionSection />
       <WhatYouLearnSection />

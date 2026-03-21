@@ -57,9 +57,9 @@ export default function PainSolutionSection() {
             {pains.map((pain, i) => (
               <li
                 key={i}
-                className="flex items-start gap-4 p-5 rounded-2xl bg-foreground/[0.03] border border-foreground/10"
+                className="flex items-start gap-4 p-5 rounded-2xl bg-foreground/[0.03] border border-foreground/10 hover:border-primary/30 hover:bg-primary/[0.03] transition-colors"
               >
-                <span className="text-2xl flex-shrink-0">{pain.icon}</span>
+                <span className="text-4xl flex-shrink-0 leading-none mt-0.5">{pain.icon}</span>
                 <p className="text-foreground/75 leading-relaxed text-sm md:text-base">
                   {pain.text}
                 </p>
@@ -68,12 +68,19 @@ export default function PainSolutionSection() {
           </ul>
         </div>
 
-        {/* Transição emocional */}
-        <div className="text-center py-12 my-4">
-          <p className="font-serif text-2xl md:text-3xl lg:text-4xl text-primary font-bold italic max-w-2xl mx-auto leading-snug">
-            &ldquo;E se eu te dissesse que existe um jeito diferente?&rdquo;
-          </p>
-          <div className="mt-4 w-16 h-1 bg-primary/30 rounded-full mx-auto" />
+        {/* Transição emocional — quote inspiracional em destaque */}
+        <div className="text-center py-14 my-4">
+          <div className="inline-block bg-gradient-to-br from-[#FFF5F2] to-[#F5F8F2] rounded-3xl px-8 py-10 max-w-3xl border border-primary/15 shadow-sm">
+            <span className="text-5xl text-primary/30 font-serif leading-none block mb-2">&ldquo;</span>
+            <p className="font-serif text-2xl md:text-3xl lg:text-[2rem] text-primary font-bold italic leading-snug">
+              E se eu te dissesse que existe um jeito diferente?
+            </p>
+            <span className="text-5xl text-primary/30 font-serif leading-none block mt-2">&rdquo;</span>
+            <div className="mt-6 w-16 h-1 bg-primary/30 rounded-full mx-auto" />
+            <p className="mt-4 text-foreground/50 text-sm font-medium">
+              Um método que respeita a sua rotina — e entrega resultados reais.
+            </p>
+          </div>
         </div>
 
         {/* Bloco de solução */}
@@ -92,9 +99,9 @@ export default function PainSolutionSection() {
             {solutions.map((sol, i) => (
               <div
                 key={i}
-                className="bg-white rounded-2xl p-6 shadow-sm flex flex-col gap-3"
+                className="bg-white rounded-2xl p-6 shadow-sm flex flex-col gap-3 border-t-4 border-primary/40 hover:border-primary transition-colors hover:shadow-md"
               >
-                <span className="text-3xl">{sol.icon}</span>
+                <span className="text-4xl">{sol.icon}</span>
                 <h3 className="font-bold text-lg text-foreground">{sol.title}</h3>
                 <p className="text-foreground/65 text-sm leading-relaxed">
                   {sol.description}
