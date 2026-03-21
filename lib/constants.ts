@@ -12,6 +12,6 @@ export const PRICE_INSTALLMENTS = '12x de R$ 19,90'
 
 export const GARANTIA_DAYS = 7
 
-export const SHOW_SCARCITY = false
+export const SHOW_SCARCITY = true
 
 export const SOCIAL_PROOF_COUNT = '10.000'

@@ -37,7 +37,7 @@ export default function TestimonialsSection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Cabeçalho */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-10">
           <p className="text-sm font-semibold text-foreground/40 uppercase tracking-widest mb-4">
             Histórias reais
           </p>
@@ -45,6 +45,26 @@ export default function TestimonialsSection() {
             Elas já viveram o que você está vivendo —{' '}
             <span className="text-primary">e mudaram</span>
           </h2>
+        </div>
+
+        {/* Contador de resultados */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-0 mb-12 max-w-2xl mx-auto bg-foreground/[0.03] rounded-2xl border border-foreground/10 overflow-hidden">
+          <div className="flex-1 flex flex-col items-center py-6 px-8">
+            <span className="font-bold text-4xl text-primary leading-none">5–8kg</span>
+            <span className="text-foreground/55 text-sm mt-1.5 text-center">média perdida</span>
+          </div>
+          <div className="hidden sm:block w-px h-16 bg-foreground/10" />
+          <div className="w-full sm:hidden h-px bg-foreground/10" />
+          <div className="flex-1 flex flex-col items-center py-6 px-8">
+            <span className="font-bold text-4xl text-primary leading-none">60 dias</span>
+            <span className="text-foreground/55 text-sm mt-1.5 text-center">de método</span>
+          </div>
+          <div className="hidden sm:block w-px h-16 bg-foreground/10" />
+          <div className="w-full sm:hidden h-px bg-foreground/10" />
+          <div className="flex-1 flex flex-col items-center py-6 px-8">
+            <span className="font-bold text-4xl text-primary leading-none">98%</span>
+            <span className="text-foreground/55 text-sm mt-1.5 text-center">de satisfação</span>
+          </div>
         </div>
 
         {/* Grid de depoimentos */}

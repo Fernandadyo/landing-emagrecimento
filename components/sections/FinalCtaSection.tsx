@@ -1,3 +1,6 @@
+'use client'
+
+import { useEffect, useState } from 'react'
 import CtaButton from '@/components/ui/CtaButton'
 import {
   PRICE_FULL,
@@ -6,6 +9,32 @@ import {
   GARANTIA_DAYS,
   SHOW_SCARCITY,
 } from '@/lib/constants'
+
+const COUNTDOWN_SECONDS = 10 * 60 // 10 minutos
+
+function CountdownTimer() {
+  const [seconds, setSeconds] = useState(COUNTDOWN_SECONDS)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSeconds((prev) => {
+        if (prev <= 1) return COUNTDOWN_SECONDS
+        return prev - 1
+      })
+    }, 1000)
+    return () => clearInterval(interval)
+  }, [])
+
+  const mins = String(Math.floor(seconds / 60)).padStart(2, '0')
+  const secs = String(seconds % 60).padStart(2, '0')
+
+  return (
+    <div className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 text-red-400 text-sm font-semibold px-5 py-2.5 rounded-full mb-8">
+      <span>⏱️</span>
+      <span>Oferta expira em: {mins}:{secs}</span>
+    </div>
+  )
+}
 
 const benefits = [
   'Método adaptável à rotina de quem trabalha muito',
@@ -23,6 +52,9 @@ export default function FinalCtaSection() {
       aria-label="Oferta final"
     >
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+        {/* Countdown de urgência */}
+        <CountdownTimer />
 
         {/* Escassez condicional */}
         {SHOW_SCARCITY && (
@@ -73,6 +105,11 @@ export default function FinalCtaSection() {
             location="final-cta"
             className="text-lg py-5 px-10 w-full sm:w-auto"
           />
+
+          {/* Prova social */}
+          <p className="text-white/70 text-sm font-medium">
+            👉 Já são +10.000 mulheres. A próxima pode ser você.
+          </p>
 
           {/* Micro-copy de segurança */}
           <p className="text-white/40 text-xs flex items-center gap-1">

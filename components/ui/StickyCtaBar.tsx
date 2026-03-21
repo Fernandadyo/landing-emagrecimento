@@ -52,7 +52,7 @@ export default function StickyCtaBar() {
           aria-label="Comprar curso agora"
           className="btn-gradient flex-1 text-white font-bold py-3 px-4 rounded-xl text-sm text-center animate-pulse-glow"
         >
-          🔥 Quero começar agora →
+          🔥 GARANTA COM 33% OFF →
         </a>
       </div>
 
