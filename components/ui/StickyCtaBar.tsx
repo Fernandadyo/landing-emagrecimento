@@ -1,26 +1,19 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { HOTMART_URL, GARANTIA_DAYS } from '@/lib/constants'
+import { trackCTAClick } from '@/lib/analytics'
+import { HOTMART_URL, PRICE_PROMO, GARANTIA_DAYS } from '@/lib/constants'
 
 export default function StickyCtaBar() {
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
-    // Mostrar a barra após scrollar além da hero (300px)
-    // Esconder quando a seção final CTA estiver visível
     const finalCta = document.getElementById('final-cta')
 
     const handleScroll = () => {
       const scrollY = window.scrollY
-      const showBar = scrollY > 300
+      if (scrollY < 400) { setIsVisible(false); return }
 
-      if (!showBar) {
-        setIsVisible(false)
-        return
-      }
-
-      // Esconder quando o CTA final estiver na viewport
       if (finalCta) {
         const rect = finalCta.getBoundingClientRect()
         const ctaVisible = rect.top < window.innerHeight && rect.bottom > 0
@@ -37,29 +30,58 @@ export default function StickyCtaBar() {
   if (!isVisible) return null
 
   return (
-    <div
-      className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-foreground border-t border-white/10 px-4 py-3 flex items-center justify-between gap-3 shadow-2xl"
-      role="complementary"
-      aria-label="Oferta rápida"
-    >
-      <div className="flex flex-col leading-tight">
-        <span className="text-white/60 text-xs line-through">R$ 297,00</span>
-        <span className="text-white font-bold text-sm">R$ 197,00</span>
+    <>
+      {/* ── MOBILE: barra completa na base ── */}
+      <div
+        className="md:hidden fixed bottom-0 left-0 right-0 z-50 animate-slide-up
+                   bg-foreground/95 backdrop-blur-md border-t border-white/10
+                   px-4 py-3 flex items-center gap-3 shadow-2xl"
+        role="complementary"
+        aria-label="Oferta rápida"
+      >
+        <div className="flex flex-col leading-tight shrink-0">
+          <span className="text-white/40 text-[11px] line-through">R$ 297</span>
+          <span className="text-white font-bold text-base">{PRICE_PROMO}</span>
+        </div>
+
+        <a
+          href={HOTMART_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => trackCTAClick('sticky-mobile')}
+          aria-label="Comprar curso agora"
+          className="btn-gradient flex-1 text-white font-bold py-3 px-4 rounded-xl text-sm text-center animate-pulse-glow"
+        >
+          🔥 Quero começar agora →
+        </a>
       </div>
 
-      <a
-        href={HOTMART_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Comprar curso de emagrecimento na Hotmart"
-        className="flex-1 bg-primary hover:bg-primary/90 text-white font-bold py-3 px-4 rounded-xl text-sm text-center transition-colors duration-150"
+      {/* ── DESKTOP: botão flutuante canto inferior direito ── */}
+      <div
+        className="hidden md:flex fixed bottom-8 right-8 z-50 animate-slide-up flex-col items-end gap-2"
+        aria-label="Oferta flutuante"
       >
-        Quero começar agora →
-      </a>
+        {/* Balãozinho de preço */}
+        <div className="glass-card rounded-2xl px-4 py-2 shadow-lg flex items-center gap-2 text-sm">
+          <span className="text-foreground/40 line-through text-xs">R$ 297</span>
+          <span className="font-bold text-foreground">{PRICE_PROMO}</span>
+          <span className="text-foreground/40 text-xs">• {GARANTIA_DAYS}d garantia</span>
+        </div>
 
-      <p className="text-white/30 text-xs hidden xs:block">
-        🔒 {GARANTIA_DAYS}d
-      </p>
-    </div>
+        {/* Botão principal flutuante */}
+        <a
+          href={HOTMART_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => trackCTAClick('sticky-desktop')}
+          aria-label="Comprar curso agora na Hotmart"
+          className="btn-gradient animate-pulse-glow text-white font-bold py-4 px-7
+                     rounded-full text-base shadow-2xl flex items-center gap-2 whitespace-nowrap"
+        >
+          <span className="text-xl">🔥</span>
+          Quero começar agora →
+        </a>
+      </div>
+    </>
   )
 }

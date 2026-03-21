@@ -22,7 +22,7 @@ export default function CtaButton({
       aria-label="Comprar curso de emagrecimento na Hotmart"
       data-location={location}
       onClick={() => trackCTAClick(location)}
-      className={`inline-block bg-primary hover:bg-primary/90 text-white font-bold py-4 px-8 rounded-full text-lg transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 ${className}`}
+      className={`inline-block btn-gradient text-white font-bold py-4 px-8 rounded-full text-lg shadow-lg ${className}`}
     >
       {text}
     </a>
