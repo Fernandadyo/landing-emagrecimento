@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import CtaButton from '@/components/ui/CtaButton'
 import { GARANTIA_DAYS } from '@/lib/constants'
 
@@ -29,6 +30,46 @@ export default function GuaranteeSection() {
               Você não tem nada a perder —{' '}
               <span className="text-primary">e muito a ganhar</span>
             </h2>
+
+            {/* Galeria estilo de vida — 3 fotos */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 my-2">
+              <div className="flex flex-col items-center gap-2">
+                <div className="w-full aspect-[3/4] rounded-2xl overflow-hidden">
+                  <Image
+                    src="/images/rotina-cafe.jpg"
+                    alt="Mulher na rotina diária segurando café"
+                    width={300}
+                    height={400}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <p className="text-xs text-foreground/50 text-center">Na correria</p>
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                <div className="w-full aspect-[3/4] rounded-2xl overflow-hidden">
+                  <Image
+                    src="/images/resultado-corpo.jpg"
+                    alt="Corpo conquistado — resultado do método"
+                    width={300}
+                    height={400}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <p className="text-xs text-foreground/50 text-center">Corpo conquistado</p>
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                <div className="w-full aspect-[3/4] rounded-2xl overflow-hidden">
+                  <Image
+                    src="/images/festa-danca.jpg"
+                    alt="Mulher celebrando e dançando em festa"
+                    width={300}
+                    height={400}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <p className="text-xs text-foreground/50 text-center">Celebrando a vida</p>
+              </div>
+            </div>
 
             <p className="text-foreground/70 text-lg leading-relaxed">
               Experimente o curso por <strong>{GARANTIA_DAYS} dias</strong> com

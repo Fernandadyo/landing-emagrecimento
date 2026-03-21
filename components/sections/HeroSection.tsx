@@ -22,8 +22,8 @@ export default function HeroSection() {
 
             <div className="relative w-full h-[380px] md:h-auto md:aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
               <Image
-                src="https://images.unsplash.com/photo-1517438476312-10d79c077509?auto=format&fit=crop&w=800&q=85"
-                alt="Mulher com corpo trabalhado em academia, fit e confiante"
+                src="/images/hero-fitness.jpg"
+                alt="Mulher com corpo definido e saudável em roupa fitness"
                 fill
                 priority
                 sizes="(max-width: 768px) 100vw, 50vw"
