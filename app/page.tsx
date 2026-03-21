@@ -2,6 +2,7 @@ import AnnouncementBar from '@/components/ui/AnnouncementBar'
 import HeroSection from '@/components/sections/HeroSection'
 import PainSolutionSection from '@/components/sections/PainSolutionSection'
 import WhatYouLearnSection from '@/components/sections/WhatYouLearnSection'
+import ResultadosSection from '@/components/sections/ResultadosSection'
 import TestimonialsSection from '@/components/sections/TestimonialsSection'
 import TransformacaoSection from '@/components/sections/TransformacaoSection'
 import GuaranteeSection from '@/components/sections/GuaranteeSection'
@@ -14,6 +15,7 @@ export default function Home() {
       <AnnouncementBar />
       <HeroSection />
       <PainSolutionSection />
+      <ResultadosSection />
       <WhatYouLearnSection />
       <TestimonialsSection />
       <TransformacaoSection />

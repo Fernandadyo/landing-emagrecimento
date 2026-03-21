@@ -81,3 +81,70 @@ body {
 .animate-marquee {
   animation: marquee 25s linear infinite;
 }
+
+/* Paleta vibrante */
+.gradient-hero {
+  background: linear-gradient(135deg, #1A1A2E 0%, #16213E 50%, #0F3460 100%);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #E8384D, #FF6B9D);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.card-glow {
+  box-shadow: 0 0 30px rgba(232, 56, 77, 0.15), 0 8px 32px rgba(0,0,0,0.08);
+}
+
+.card-glow:hover {
+  box-shadow: 0 0 50px rgba(232, 56, 77, 0.3), 0 16px 48px rgba(0,0,0,0.12);
+  transform: translateY(-4px);
+}
+
+/* ── 3D CUBE ── */
+.cube-scene {
+  perspective: 900px;
+  width: 280px;
+  height: 280px;
+}
+
+.cube {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: rotateCube 16s infinite linear;
+}
+
+.cube-face {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 2px solid rgba(232, 56, 77, 0.4);
+  backface-visibility: hidden;
+}
+
+.cube-face img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.face-front  { transform: rotateY(  0deg) translateZ(140px); }
+.face-back   { transform: rotateY(180deg) translateZ(140px); }
+.face-right  { transform: rotateY( 90deg) translateZ(140px); }
+.face-left   { transform: rotateY(-90deg) translateZ(140px); }
+.face-top    { transform: rotateX( 90deg) translateZ(140px); }
+.face-bottom { transform: rotateX(-90deg) translateZ(140px); }
+
+@keyframes rotateCube {
+  0%   { transform: rotateX(  0deg) rotateY(  0deg); }
+  25%  { transform: rotateX( 15deg) rotateY( 90deg); }
+  50%  { transform: rotateX(  0deg) rotateY(180deg); }
+  75%  { transform: rotateX(-15deg) rotateY(270deg); }
+  100% { transform: rotateX(  0deg) rotateY(360deg); }
+}

@@ -9,11 +9,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#D4654A',
-        secondary: '#8B9E6E',
-        background: '#FAF8F5',
-        foreground: '#2D2D2D',
-        accent: '#F0E6D3',
+        primary:    '#E8384D',
+        secondary:  '#00C896',
+        background: '#FFFFFF',
+        foreground: '#1A1A2E',
+        accent:     '#FFE8EC',
+        'primary-dark': '#C42839',
+        'neon':     '#FF6B9D',
       },
       fontFamily: {
         serif: ['var(--font-playfair)', 'Georgia', 'serif'],
